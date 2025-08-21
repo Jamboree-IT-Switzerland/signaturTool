@@ -1,0 +1,199 @@
+{
+  "languages": {
+    "de": {
+      "name": "Deutsch",
+      "code": "DE"
+    },
+    "fr": {
+      "name": "Français",
+      "code": "FR"
+    },
+    "it": {
+      "name": "Italiano",
+      "code": "IT"
+    }
+  },
+  "ui": {
+    "de": {
+      "title": "Mova Signatur Generator",
+      "myInfo": "Meine Infos",
+      "myRole": "Meine Funktion",
+      "gender": "Geschlecht",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "namePlaceholder": "Name und Vorname",
+      "pfadiPlaceholder": "Pfadiname",
+      "phonePlaceholder": "Telefonnummer",
+      "emailPlaceholder": "E-Mail-Adresse",
+      "rolePlaceholder": "Rolle",
+      "sectorPlaceholder": "Resort",
+      "subSectorPlaceholder": "Bereich",
+      "submitButton": "Senden"
+    },
+    "fr": {
+      "title": "Générateur de signature Mova",
+      "myInfo": "Mes infos",
+      "myRole": "Ma fonction",
+      "gender": "Sexe",
+      "male": "Homme",
+      "female": "Femme",
+      "namePlaceholder": "Nom Prénom",
+      "pfadiPlaceholder": "Totem",
+      "phonePlaceholder": "Numéro de téléphone",
+      "emailPlaceholder": "Adresse e-mail",
+      "rolePlaceholder": "Rôle",
+      "sectorPlaceholder": "Ressort",
+      "subSectorPlaceholder": "Secteur",
+      "submitButton": "Envoyer"
+    },
+    "it": {
+      "title": "Generatore di firma Mova",
+      "myInfo": "I miei dati",
+      "myRole": "La mia funzione",
+      "gender": "Sesso",
+      "male": "Uomo",
+      "female": "Donna",
+      "namePlaceholder": "Nome e Cognome",
+      "pfadiPlaceholder": "Totem",
+      "phonePlaceholder": "Numero di telefono",
+      "emailPlaceholder": "Indirizzo email",
+      "rolePlaceholder": "Ruolo",
+      "sectorPlaceholder": "Ressort",
+      "subSectorPlaceholder": "Settore",
+      "submitButton": "Invia"
+    }
+  },
+  "roles": {
+    "Responsable de camp": {
+      "fr": {
+        "male": "Co-responsable de camp",
+        "female": "Co-responsable de camp"
+      },
+      "de": {
+        "male": "Co-Lagerleiter",
+        "female": "Co-Lagerleiterin"
+      },
+      "it": {
+        "male": "Co-capicampo",
+        "female": "Co-capicampo"
+      }
+    },
+    "Responsable de commission": {
+      "fr": {
+        "male": "Responsable de ressort",
+        "female": "Responsable de ressort"
+      },
+      "de": {
+        "male": "Ressortleiter",
+        "female": "Ressortleiterin"
+      },
+      "it": {
+        "male": "Responsabile del ressort",
+        "female": "Responsabile del ressort"
+      }
+    },
+    "Responsable de sous commission": {
+      "fr": {
+        "male": "Responsable de secteur",
+        "female": "Resposable de secteur"
+      },
+      "de": {
+        "male": "Bereichsleiter",
+        "female": "Bereichsleiterin"
+      },
+      "it": {
+        "male": "Responsabile del settore",
+        "female": "Responsabile del settore"
+      }
+    },
+    "Responsable de sous sous commission": {
+      "fr": {
+        "male": "Responsable de sous-secteur",
+        "female": "Responsable de sous-secteur"
+      },
+      "de": {
+        "male": "Teilbereichsleiter",
+        "female": "Teilbereichsleiterin"
+      },
+      "it": {
+        "male": "Responsabile del sottosettore",
+        "female": "Responsabile del sottosettore"
+      }
+    },
+    "Colaborateur": {
+      "fr": {
+        "male": "Collaborateur",
+        "female": "Collaboratrice"
+      },
+      "de": {
+        "male": "Mitarbeiter",
+        "female": "Mitarbeiterin"
+      },
+      "it": {
+        "male": "Collaboratore",
+        "female": "Collaboratrice"
+      }
+    },
+    "none": {
+      "fr": {
+        "male": "",
+        "female": ""
+      },
+      "de": {
+        "male": "",
+        "female": ""
+      },
+      "it": {
+        "male": "",
+        "female": ""
+      }
+    }
+  },
+  "sectors": {
+    "Finance": {
+      "fr": "Finance",
+      "de": "Finanzen",
+      "it": "Finanze"
+    },
+    "Logistic": {
+      "fr": "Logistique",
+      "de": "Logistik",
+      "it": "Logistica"
+    },
+    "Communikation": {
+      "fr": "Communication",
+      "de": "Kommunikation",
+      "it": "Comunicazione"
+    },
+    "Staff": {
+      "fr": "Staff",
+      "de": "Staff",
+      "it": "Staff"
+    },
+    "SanSi": {
+      "fr": "Santé et sécurité",
+      "de": "Sanität und Sicherheit",
+      "it": "Sanità e sicurezza"
+    },
+    "Support": {
+      "fr": "Support",
+      "de": "Support",
+      "it": "Supporto"
+    },
+    "Programme": {
+      "fr": "Programme",
+      "de": "Programm",
+      "it": "Programma"
+    },
+    "Comite": {
+      "fr": "Comité",
+      "de": "Vorstand",
+      "it": "Comitato"
+    },
+    "Secretariat": {
+      "fr": "Sécrétariat général",
+      "de": "Geschäftsstelle",
+      "it": "Segretariato generale"
+    }
+  }
+}
