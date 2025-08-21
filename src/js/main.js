@@ -98,6 +98,7 @@ class SignatureGenerator {
             '.gender-select h2': ui.gender,
             'label[for="male"]': ui.male,
             'label[for="female"]': ui.female,
+            'label[for="diverse"]': ui.diverse,
             'input[name="firstname"]': { placeholder: ui.namePlaceholder },
             'input[name="pfadiName"]': { placeholder: ui.pfadiPlaceholder },
             'input[name="phone"]': { placeholder: ui.phonePlaceholder },
@@ -133,22 +134,22 @@ class SignatureGenerator {
         options.forEach(option => {
             const roleKey = option.value;
             if (this.translations.roles[roleKey]) {
-                // Use the German role name as display text (original behavior)
-                const germanRole = this.translations.roles[roleKey].de.male;
-                if (germanRole) {
-                    option.textContent = this.getGermanRoleDisplayName(roleKey);
+                // Use the current language for role display
+                const roleTranslation = this.translations.roles[roleKey][this.currentLanguage];
+                if (roleTranslation && roleTranslation.male) {
+                    // Use male form as default display (since we don't know gender yet)
+                    option.textContent = roleTranslation.male || roleKey;
                 }
             }
         });
     }
 
     getGermanRoleDisplayName(roleKey) {
+        // This method is no longer needed but kept for compatibility
         const roleMap = {
-            'Responsable de camp': 'Lagerleiter',
-            'Responsable de commission': 'Ressortleiter',
-            'Responsable de sous commission': 'Bereichsleiter',
-            'Responsable de sous sous commission': 'Teilbereichsleiter',
-            'Colaborateur': 'Mitarbeiter',
+            'delegationlead': 'Delegationsleitung',
+            'unitleader': 'Unit Leader',
+            'istmember': 'IST Member',
             'none': '-'
         };
         return roleMap[roleKey] || roleKey;
@@ -162,8 +163,8 @@ class SignatureGenerator {
         options.forEach(option => {
             const sectorKey = option.value;
             if (this.translations.sectors[sectorKey]) {
-                // Use German sector name for display
-                option.textContent = this.translations.sectors[sectorKey].de;
+                // Use current language for sector display
+                option.textContent = this.translations.sectors[sectorKey][this.currentLanguage] || sectorKey;
             }
         });
     }
@@ -172,8 +173,8 @@ class SignatureGenerator {
         const subSectorInput = document.querySelector('input[name="subSector"]');
         if (!subSectorInput) return;
 
-        // Hide subsector for "Responsable de commission" (Ressortleiter)
-        if (role === 'Responsable de commission') {
+        // Show subsector for all roles except "none"
+        if (role === 'none') {
             subSectorInput.style.display = 'none';
             subSectorInput.value = '';
         } else {
@@ -241,7 +242,7 @@ class SignatureGenerator {
         let space = ', ';
         let displaySubSector = subSector;
 
-        if (role === 'Responsable de commission' || role === 'none') {
+        if (role === 'none') {
             space = '';
             displaySubSector = '';
         }
@@ -265,7 +266,7 @@ class SignatureGenerator {
             <table id="t01">
                 <tr>
                     <th>
-                        <img src="${this.config.signature.logoPath}" alt="Mova logo" height="${this.config.signature.logoHeight}">
+                        <img src="${this.config.signature.logoPath}" alt="Jamboree logo" height="${this.config.signature.logoHeight}">
                     </th>
                     <th style="margin: 0; padding: 0; line-height: 15px">
                         <p style="font-weight: 700; margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}">${data.firstname}${data.pfadiName ? ' / ' + data.pfadiName : ''}</p>
@@ -308,11 +309,13 @@ class SignatureGenerator {
     displaySignature(signatureHTML) {
         // Hide form and show signature
         const container = document.querySelector('.container');
+        const ui = this.translations.ui[this.currentLanguage];
+
         container.innerHTML = `
             <div class="signature-result">
                 <div class="signature-actions">
-                    <button onclick="app.copySignatureHTML()" class="button">Copy HTML</button>
-                    <button onclick="app.resetForm()" class="button">Create New Signature</button>
+                    <button onclick="app.copySignatureHTML()" class="button">${ui.copyButton}</button>
+                    <button onclick="app.resetForm()" class="button">${ui.newSignatureButton}</button>
                 </div>
                 <div class="signature-display">
                     ${signatureHTML}
@@ -322,12 +325,55 @@ class SignatureGenerator {
     }
 
     copySignatureHTML() {
-        const signatureHTML = document.querySelector('.signature-display').innerHTML;
-        navigator.clipboard.writeText(signatureHTML).then(() => {
-            this.showSuccess('Signature HTML copied to clipboard!');
-        }).catch(() => {
-            this.showError('Failed to copy to clipboard');
-        });
+        const signatureDisplay = document.querySelector('.signature-display');
+        if (!signatureDisplay) {
+            const ui = this.translations.ui[this.currentLanguage];
+            this.showError(ui.copyError || 'No signature found to copy');
+            return;
+        }
+
+        const signatureHTML = signatureDisplay.innerHTML;
+
+        // Check if clipboard API is available
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(signatureHTML).then(() => {
+                const ui = this.translations.ui[this.currentLanguage];
+                this.showSuccess(ui.copySuccess || 'Signature HTML copied to clipboard!');
+            }).catch((err) => {
+                console.error('Failed to copy to clipboard:', err);
+                this.fallbackCopyTextToClipboard(signatureHTML);
+            });
+        } else {
+            // Fallback for older browsers
+            this.fallbackCopyTextToClipboard(signatureHTML);
+        }
+    }
+
+    fallbackCopyTextToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            const successful = document.execCommand('copy');
+            const ui = this.translations.ui[this.currentLanguage];
+            if (successful) {
+                this.showSuccess(ui.copySuccess || 'Signature HTML copied to clipboard!');
+            } else {
+                this.showError(ui.copyError || 'Failed to copy to clipboard');
+            }
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+            const ui = this.translations.ui[this.currentLanguage];
+            this.showError(ui.copyError || 'Copy to clipboard not supported');
+        }
+
+        document.body.removeChild(textArea);
     }
 
     resetForm() {

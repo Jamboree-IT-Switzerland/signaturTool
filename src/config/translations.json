@@ -15,28 +15,34 @@
   },
   "ui": {
     "de": {
-      "title": "Mova Signatur Generator",
+      "title": "Jamboree Signatur Generator",
       "myInfo": "Meine Infos",
       "myRole": "Meine Funktion",
       "gender": "Geschlecht",
       "male": "Männlich",
       "female": "Weiblich",
+      "diverse": "Diverse",
       "namePlaceholder": "Name und Vorname",
       "pfadiPlaceholder": "Pfadiname",
       "phonePlaceholder": "Telefonnummer",
       "emailPlaceholder": "E-Mail-Adresse",
       "rolePlaceholder": "Rolle",
-      "sectorPlaceholder": "Resort",
+      "sectorPlaceholder": "Ressort",
       "subSectorPlaceholder": "Bereich",
-      "submitButton": "Senden"
+      "submitButton": "Senden",
+      "copyButton": "HTML kopieren",
+      "newSignatureButton": "Neue Signatur erstellen",
+      "copySuccess": "Signatur HTML in Zwischenablage kopiert!",
+      "copyError": "Fehler beim Kopieren in die Zwischenablage"
     },
     "fr": {
-      "title": "Générateur de signature Mova",
+      "title": "Générateur de signature Jamboree",
       "myInfo": "Mes infos",
       "myRole": "Ma fonction",
       "gender": "Sexe",
       "male": "Homme",
       "female": "Femme",
+      "diverse": "Divers",
       "namePlaceholder": "Nom Prénom",
       "pfadiPlaceholder": "Totem",
       "phonePlaceholder": "Numéro de téléphone",
@@ -44,15 +50,20 @@
       "rolePlaceholder": "Rôle",
       "sectorPlaceholder": "Ressort",
       "subSectorPlaceholder": "Secteur",
-      "submitButton": "Envoyer"
+      "submitButton": "Envoyer",
+      "copyButton": "Copier HTML",
+      "newSignatureButton": "Créer nouvelle signature",
+      "copySuccess": "HTML de signature copié dans le presse-papiers!",
+      "copyError": "Échec de la copie dans le presse-papiers"
     },
     "it": {
-      "title": "Generatore di firma Mova",
+      "title": "Generatore di firma Jamboree",
       "myInfo": "I miei dati",
       "myRole": "La mia funzione",
       "gender": "Sesso",
       "male": "Uomo",
       "female": "Donna",
+      "diverse": "Diverso",
       "namePlaceholder": "Nome e Cognome",
       "pfadiPlaceholder": "Totem",
       "phonePlaceholder": "Numero di telefono",
@@ -60,140 +71,128 @@
       "rolePlaceholder": "Ruolo",
       "sectorPlaceholder": "Ressort",
       "subSectorPlaceholder": "Settore",
-      "submitButton": "Invia"
+      "submitButton": "Invia",
+      "copyButton": "Copia HTML",
+      "newSignatureButton": "Crea nuova firma",
+      "copySuccess": "HTML firma copiato negli appunti!",
+      "copyError": "Errore nella copia negli appunti"
     }
   },
   "roles": {
-    "Responsable de camp": {
+    "delegationlead": {
       "fr": {
-        "male": "Co-responsable de camp",
-        "female": "Co-responsable de camp"
+        "male": "Chef de délégation",
+        "female": "Cheffe de délégation",
+        "diverse": "Chef·fe de délégation"
       },
       "de": {
-        "male": "Co-Lagerleiter",
-        "female": "Co-Lagerleiterin"
+        "male": "Delegationsleitung",
+        "female": "Delegationsleiterin",
+        "diverse": "Delegationsleitung"
       },
       "it": {
-        "male": "Co-capicampo",
-        "female": "Co-capicampo"
+        "male": "Capo delegazione",
+        "female": "Capa delegazione",
+        "diverse": "Capo/a delegazione"
       }
     },
-    "Responsable de commission": {
+    "unitleader": {
       "fr": {
-        "male": "Responsable de ressort",
-        "female": "Responsable de ressort"
+        "male": "Chef d'unité",
+        "female": "Cheffe d'unité",
+        "diverse": "Chef·fe d'unité"
       },
       "de": {
-        "male": "Ressortleiter",
-        "female": "Ressortleiterin"
+        "male": "Unit Leader",
+        "female": "Unit Leader",
+        "diverse": "Unit Leader"
       },
       "it": {
-        "male": "Responsabile del ressort",
-        "female": "Responsabile del ressort"
+        "male": "Capo unità",
+        "female": "Capa unità",
+        "diverse": "Capo/a unità"
       }
     },
-    "Responsable de sous commission": {
+    "istmember": {
       "fr": {
-        "male": "Responsable de secteur",
-        "female": "Resposable de secteur"
+        "male": "Membre IST",
+        "female": "Membre IST",
+        "diverse": "Membre IST"
       },
       "de": {
-        "male": "Bereichsleiter",
-        "female": "Bereichsleiterin"
+        "male": "IST Member",
+        "female": "IST Member",
+        "diverse": "IST Member"
       },
       "it": {
-        "male": "Responsabile del settore",
-        "female": "Responsabile del settore"
-      }
-    },
-    "Responsable de sous sous commission": {
-      "fr": {
-        "male": "Responsable de sous-secteur",
-        "female": "Responsable de sous-secteur"
-      },
-      "de": {
-        "male": "Teilbereichsleiter",
-        "female": "Teilbereichsleiterin"
-      },
-      "it": {
-        "male": "Responsabile del sottosettore",
-        "female": "Responsabile del sottosettore"
-      }
-    },
-    "Colaborateur": {
-      "fr": {
-        "male": "Collaborateur",
-        "female": "Collaboratrice"
-      },
-      "de": {
-        "male": "Mitarbeiter",
-        "female": "Mitarbeiterin"
-      },
-      "it": {
-        "male": "Collaboratore",
-        "female": "Collaboratrice"
+        "male": "Membro IST",
+        "female": "Membro IST",
+        "diverse": "Membro IST"
       }
     },
     "none": {
       "fr": {
         "male": "",
-        "female": ""
+        "female": "",
+        "diverse": ""
       },
       "de": {
         "male": "",
-        "female": ""
+        "female": "",
+        "diverse": ""
       },
       "it": {
         "male": "",
-        "female": ""
+        "female": "",
+        "diverse": ""
       }
     }
   },
   "sectors": {
-    "Finance": {
+    "HoC": {
+      "fr": "HoC",
+      "de": "HoC",
+      "it": "HoC"
+    },
+    "finance": {
       "fr": "Finance",
       "de": "Finanzen",
       "it": "Finanze"
     },
-    "Logistic": {
+    "logistic": {
       "fr": "Logistique",
       "de": "Logistik",
       "it": "Logistica"
     },
-    "Communikation": {
+    "communication": {
       "fr": "Communication",
       "de": "Kommunikation",
       "it": "Comunicazione"
     },
-    "Staff": {
-      "fr": "Staff",
-      "de": "Staff",
-      "it": "Staff"
+    "ist": {
+      "fr": "IST",
+      "de": "IST",
+      "it": "IST"
     },
-    "SanSi": {
-      "fr": "Santé et sécurité",
-      "de": "Sanität und Sicherheit",
-      "it": "Sanità e sicurezza"
-    },
-    "Support": {
+    "support": {
       "fr": "Support",
       "de": "Support",
       "it": "Supporto"
     },
-    "Programme": {
-      "fr": "Programme",
-      "de": "Programm",
-      "it": "Programma"
+    "unitsupport": {
+      "fr": "Unit Support",
+      "de": "Unit Support",
+      "it": "Unit Support"
     },
-    "Comite": {
-      "fr": "Comité",
-      "de": "Vorstand",
-      "it": "Comitato"
+    "programme": {
+      "fr": "SMS & Prévention",
+      "de": "SMS & Prävention",
+      "it": "SMS & Prevenzione"
     },
-    "Secretariat": {
-      "fr": "Sécrétariat général",
-      "de": "Geschäftsstelle",
-      "it": "Segretariato generale"
+    "comite": {
+      "fr": "CMT",
+      "de": "CMT",
+      "it": "CMT"
     }
   }
 }

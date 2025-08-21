@@ -1,15 +1,15 @@
 {
   "app": {
-    "name": "Mova Signature Generator",
-    "version": "2.0.0",
+    "name": "Jamboree CH Signature Generator",
+    "version": "1.0.0",
     "defaultLanguage": "de",
     "supportedLanguages": ["de", "fr", "it"]
   },
   "signature": {
-    "websiteUrl": "www.mova.ch",
-    "logoPath": "img/Mova_Logo_black_rgb_Mailsignatur_marginright_big.png",
+    "websiteUrl": "www.jamboree.ch",
+    "logoPath": "img/Jamboree_Logo_Mailsignatur.png",
     "logoHeight": "150px",
-    "fontFamily": "arial, sans-serif",
+    "fontFamily": "arial",
     "fontSize": "12.5px"
   },
   "form": {

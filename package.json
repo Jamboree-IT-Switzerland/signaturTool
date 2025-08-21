@@ -1,7 +1,7 @@
 {
-  "name": "mova-signature-generator",
+  "name": "jamboree-signature-generator",
   "version": "2.0.0",
-  "description": "JavaScript-only signature generator for Mova organization",
+  "description": "JavaScript-only signature generator for Jamboree CH",
   "main": "index.html",
   "scripts": {
     "start": "http-server src -p 8080 -c-1",
@@ -16,10 +16,10 @@
   "keywords": [
     "signature",
     "email",
-    "mova",
+    "jamboree",
     "javascript",
     "html"
   ],
-  "author": "Mova Organization",
+  "author": "Jamboree IT CH",
   "license": "MIT"
 }

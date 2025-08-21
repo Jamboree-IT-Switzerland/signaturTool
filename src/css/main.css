@@ -22,7 +22,7 @@ header svg{
     width: 60%;
     height: calc(50vh + 100px);
     background: white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'arial';
     -webkit-box-shadow: 0px 0px 42px -13px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 42px -13px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 42px -13px rgba(0, 0, 0, 0.75);
@@ -216,6 +216,28 @@ a {
     gap: 10px;
 }
 
+.signature-actions .button {
+    position: static;
+    top: auto;
+    height: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    font-variant: small-caps;
+    background: white;
+    border: 3px solid #e6500f;
+    color: #e6500f;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.signature-actions .button:hover {
+    transform: scale(1.05);
+    background: #e6500f;
+    color: white;
+}
+
 .signature-display {
     width: 100%;
     max-width: 600px;
@@ -340,6 +362,11 @@ a {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+
+    .signature-actions .button {
+        width: 200px;
+        max-width: 90%;
     }
 
     .notification {

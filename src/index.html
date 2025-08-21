@@ -46,6 +46,10 @@
                         <input required type="radio" id="female" name="gender" value="female">
                         <label for="female">Weiblich</label><br>
                     </div>
+                    <div class="input">
+                        <input required type="radio" id="diverse" name="gender" value="diverse">
+                        <label for="diverse">Diverse</label><br>
+                    </div>
                 </div>
                 <input type="text" name="firstname" placeholder="Name und Vorname" required>
                 <input type="text" name="pfadiName" placeholder="Pfadiname">
@@ -56,24 +60,22 @@
                 <p class="info"><span class="number">2</span>Meine Funktion</p>
                 <select required name="role" id="role">
                     <option value="">Rolle</option>
-                    <option value="Responsable de camp">Lagerleiter</option>
-                    <option value="Responsable de commission">Ressortleiter</option>
-                    <option value="Responsable de sous commission">Bereichsleiter</option>
-                    <option value="Responsable de sous sous commission">Teilbereichsleiter</option>
-                    <option value="Colaborateur">Mitarbeiter</option>
+                    <option value="delegationlead">Delegationsleitung</option>
+                    <option value="unitleader">Unit Leader</option>
+                    <option value="istmember">IST Member</option>
                     <option value="none">-</option>
                 </select>
                 <select required name="Comission">
-                    <option value="">Resort</option>
-                    <option value="Finance">Finanzen</option>
-                    <option value="Logistic">Logistik</option>
-                    <option value="Communikation">Kommunikation</option>
-                    <option value="Staff">Staff</option>
-                    <option value="SanSi">Sanität und Sicherheit</option>
-                    <option value="Support">Support</option>
-                    <option value="Programme">Programme</option>
-                    <option value="Comite">Vorstand</option>
-                    <option value="Secretariat">Geschäftsstelle</option>
+                    <option value="">Ressort</option>
+                    <option value="HoC">Hoc</option>
+                    <option value="finance">Finanzen</option>
+                    <option value="logistic">Logistik</option>
+                    <option value="communication">Kommunikation</option>
+                    <option value="ist">IST</option>
+                    <option value="support">Support</option>
+                    <option value="unitsupport">Unit Support</option>
+                    <option value="programme">SMS & Prävention</option>
+                    <option value="comite">CMT</option>
                 </select>
                 <input type="text" name="subSector" placeholder="Bereich">
             </div>
