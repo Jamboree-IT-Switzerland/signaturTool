@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #55c0ff;
+    background: white;
 }
 
 header {
@@ -10,17 +10,17 @@ header {
 }
 
 header svg{
-   fill: #ffeb00;
+   fill: #D6303C;
 }
 
 
 .container {
     position: absolute;
-    top: 20vh;
+    top: 10vh;
     left: 50%;
     transform: translate(-50%);
     width: 60%;
-    height: calc(50vh + 100px);
+    height: calc(65vh + 100px);
     background: white;
     font-family: 'arial';
     -webkit-box-shadow: 0px 0px 42px -13px rgba(0, 0, 0, 0.75);

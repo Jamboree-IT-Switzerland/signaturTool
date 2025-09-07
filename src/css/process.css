@@ -9,10 +9,6 @@ header {
     height: 50vh;
 }
 
-header svg{
-    fill: #55c0ff;
-}
-
 .container {
     position: absolute;
     top: 20vh;
