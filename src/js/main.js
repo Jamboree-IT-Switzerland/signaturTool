@@ -332,20 +332,38 @@ class SignatureGenerator {
             return;
         }
 
-        const signatureHTML = signatureDisplay.innerHTML;
+        // Get the full HTML including table and styles
+        let signatureHTML = signatureDisplay.innerHTML;
 
-        // Check if clipboard API is available
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(signatureHTML).then(() => {
+        // Wrap with a minimal HTML structure for Outlook
+        const fullHTML = `<!DOCTYPE html>
+<html><head><meta charset='UTF-8'></head><body style="font-family: ${this.config.signature.fontFamily}; font-size: ${this.config.signature.fontSize};">
+${signatureHTML}
+</body></html>`;
+
+        // Use Clipboard API with 'text/html' for Outlook compatibility
+        if (navigator.clipboard && window.ClipboardItem) {
+            const blob = new Blob([fullHTML], { type: 'text/html' });
+            const clipboardItem = new ClipboardItem({ 'text/html': blob });
+            navigator.clipboard.write([clipboardItem]).then(() => {
                 const ui = this.translations.ui[this.currentLanguage];
                 this.showSuccess(ui.copySuccess || 'Signature HTML copied to clipboard!');
             }).catch((err) => {
                 console.error('Failed to copy to clipboard:', err);
-                this.fallbackCopyTextToClipboard(signatureHTML);
+                this.fallbackCopyTextToClipboard(fullHTML);
+            });
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+            // Fallback: copy as plain text (may lose formatting)
+            navigator.clipboard.writeText(fullHTML).then(() => {
+                const ui = this.translations.ui[this.currentLanguage];
+                this.showSuccess(ui.copySuccess || 'Signature HTML copied to clipboard!');
+            }).catch((err) => {
+                console.error('Failed to copy to clipboard:', err);
+                this.fallbackCopyTextToClipboard(fullHTML);
             });
         } else {
             // Fallback for older browsers
-            this.fallbackCopyTextToClipboard(signatureHTML);
+            this.fallbackCopyTextToClipboard(fullHTML);
         }
     }
 
