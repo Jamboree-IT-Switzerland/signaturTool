@@ -24,11 +24,9 @@
       "diverse": "Diverse",
       "namePlaceholder": "Name und Vorname",
       "pfadiPlaceholder": "Pfadiname",
-      "phonePlaceholder": "Telefonnummer",
       "emailPlaceholder": "E-Mail-Adresse",
       "rolePlaceholder": "Rolle",
       "sectorPlaceholder": "Ressort",
-      "subSectorPlaceholder": "Bereich",
       "submitButton": "Senden",
       "copyButton": "HTML kopieren",
       "newSignatureButton": "Neue Signatur erstellen",
@@ -45,11 +43,9 @@
       "diverse": "Divers",
       "namePlaceholder": "Nom Prénom",
       "pfadiPlaceholder": "Totem",
-      "phonePlaceholder": "Numéro de téléphone",
       "emailPlaceholder": "Adresse e-mail",
       "rolePlaceholder": "Rôle",
       "sectorPlaceholder": "Ressort",
-      "subSectorPlaceholder": "Secteur",
       "submitButton": "Envoyer",
       "copyButton": "Copier HTML",
       "newSignatureButton": "Créer nouvelle signature",
@@ -66,11 +62,9 @@
       "diverse": "Diverso",
       "namePlaceholder": "Nome e Cognome",
       "pfadiPlaceholder": "Totem",
-      "phonePlaceholder": "Numero di telefono",
       "emailPlaceholder": "Indirizzo email",
       "rolePlaceholder": "Ruolo",
       "sectorPlaceholder": "Ressort",
-      "subSectorPlaceholder": "Settore",
       "submitButton": "Invia",
       "copyButton": "Copia HTML",
       "newSignatureButton": "Crea nuova firma",
@@ -79,120 +73,25 @@
     }
   },
   "roles": {
-    "delegationlead": {
-      "fr": {
-        "male": "Chef de délégation",
-        "female": "Cheffe de délégation",
-        "diverse": "Chef·fe de délégation"
-      },
-      "de": {
-        "male": "Delegationsleitung",
-        "female": "Delegationsleiterin",
-        "diverse": "Delegationsleitung"
-      },
-      "it": {
-        "male": "Capo delegazione",
-        "female": "Capa delegazione",
-        "diverse": "Capo/a delegazione"
-      }
-    },
-    "unitleader": {
-      "fr": {
-        "male": "Chef d'unité",
-        "female": "Cheffe d'unité",
-        "diverse": "Chef·fe d'unité"
-      },
-      "de": {
-        "male": "Unit Leader",
-        "female": "Unit Leader",
-        "diverse": "Unit Leader"
-      },
-      "it": {
-        "male": "Capo unità",
-        "female": "Capa unità",
-        "diverse": "Capo/a unità"
-      }
-    },
-    "istmember": {
-      "fr": {
-        "male": "Membre IST",
-        "female": "Membre IST",
-        "diverse": "Membre IST"
-      },
-      "de": {
-        "male": "IST Member",
-        "female": "IST Member",
-        "diverse": "IST Member"
-      },
-      "it": {
-        "male": "Membro IST",
-        "female": "Membro IST",
-        "diverse": "Membro IST"
-      }
-    },
-    "none": {
-      "fr": {
-        "male": "",
-        "female": "",
-        "diverse": ""
-      },
-      "de": {
-        "male": "",
-        "female": "",
-        "diverse": ""
-      },
-      "it": {
-        "male": "",
-        "female": "",
-        "diverse": ""
-      }
-    }
+    "delegationlead": "CMT",
+    "unitleader": "Unit Leader",
+    "istmember": "IST",
+    "none": ""
   },
   "sectors": {
-    "HoC": {
-      "fr": "HoC",
-      "de": "HoC",
-      "it": "HoC"
-    },
-    "finance": {
-      "fr": "Finance",
-      "de": "Finanzen",
-      "it": "Finanze"
-    },
-    "logistic": {
-      "fr": "Logistique",
-      "de": "Logistik",
-      "it": "Logistica"
-    },
-    "communication": {
-      "fr": "Communication",
-      "de": "Kommunikation",
-      "it": "Comunicazione"
-    },
-    "ist": {
-      "fr": "IST",
-      "de": "IST",
-      "it": "IST"
-    },
-    "support": {
-      "fr": "Support",
-      "de": "Support",
-      "it": "Supporto"
-    },
-    "unitsupport": {
-      "fr": "Unit Support",
-      "de": "Unit Support",
-      "it": "Unit Support"
-    },
-    "sp": {
-      "fr": "SMS & Prévention",
-      "de": "SMS & Prävention",
-      "it": "SMS & Prevenzione"
-    },
-    "comite": {
-      "fr": "CMT",
-      "de": "CMT",
-      "it": "CMT"
-    }
+    "HoC": "Head of Contingent",
+    "Finance": "Finance",
+    "Logistic": "Logistics",
+    "Communication": "Communication",
+    "IST": "IST Support (Head of)",
+    "Support": "Support",
+    "IT": "IT",
+    "SocialMedia": "Social Media",
+    "Design": "Design",
+    "ContingentTent": "Contingent Tent",
+    "UnitSupport": "Unit Support (Head of)",
+    "SMS": "Swiss Media Service",
+    "SafeFromHarm": "Safe From Harm",
+    "comite": "CMT Support"
   }
 }

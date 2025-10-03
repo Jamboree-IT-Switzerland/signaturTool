@@ -53,14 +53,6 @@ class SignatureGenerator {
                 this.generateSignature();
             });
         }
-
-        // Role change handler for hiding/showing subsector
-        const roleSelect = document.querySelector('#role');
-        if (roleSelect) {
-            roleSelect.addEventListener('change', (e) => {
-                this.handleRoleChange(e.target.value);
-            });
-        }
     }
 
     getLangFromHref(href) {
@@ -101,11 +93,9 @@ class SignatureGenerator {
             'label[for="diverse"]': ui.diverse,
             'input[name="firstname"]': { placeholder: ui.namePlaceholder },
             'input[name="pfadiName"]': { placeholder: ui.pfadiPlaceholder },
-            'input[name="phone"]': { placeholder: ui.phonePlaceholder },
             'input[name="mail"]': { placeholder: ui.emailPlaceholder },
             '#role option[value=""]': ui.rolePlaceholder,
             'select[name="Comission"] option[value=""]': ui.sectorPlaceholder,
-            'input[name="subSector"]': { placeholder: ui.subSectorPlaceholder },
             '.button': { value: ui.submitButton }
         };
 
@@ -197,10 +187,7 @@ class SignatureGenerator {
             errors.push('Invalid email format');
         }
 
-        // Validate phone (if provided)
-        if (formData.phone && !new RegExp(this.config.form.validation.phonePattern).test(formData.phone)) {
-            errors.push('Invalid phone format');
-        }
+        console.error('Validation errors:', errors);
 
         return errors;
     }
@@ -231,36 +218,15 @@ class SignatureGenerator {
     buildSignatureHTML(data) {
         const role = data.role;
         const sector = data.Comission;
-        const subSector = data.subSector || '';
         const gender = data.gender;
 
-        // Get translated roles and sectors for all languages
-        const roleTranslations = this.getRoleTranslations(role, gender);
-        const sectorTranslations = this.getSectorTranslations(sector);
+        const roleText = role && this.translations.roles[role];
+        const sectorText = sector && this.translations.sectors[sector];
+        const resultingLine = roleText ? (`${roleText}${sectorText ? ' | ' + sectorText : ''}`) : sectorText;
 
-        // Handle spacing and subsector display
-        let space = ', ';
-        let displaySubSector = subSector;
-
-        if (role === 'none') {
-            space = '';
-            displaySubSector = '';
-        }
-
-        const signatureLines = [];
-
-        // Build signature lines for each language
-        ['fr', 'de', 'it'].forEach(lang => {
-            const roleText = roleTranslations[lang] || '';
-            const sectorText = sectorTranslations[lang] || '';
-
-            if (roleText || sectorText) {
-                const line = `${roleText}${displaySubSector ? ' ' + displaySubSector : ''}${space}${sectorText}`;
-                signatureLines.push(line);
-            } else {
-                signatureLines.push('');
-            }
-        });
+        console.log('Role text:', roleText);
+        console.log('Sector text:', sectorText);
+        console.log('Resulting line:', resultingLine);
 
         return `
             <table id="t01">
@@ -271,39 +237,20 @@ class SignatureGenerator {
                     <th style="margin: 0; padding: 0; line-height: 15px">
                         <p style="font-weight: 700; margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}">${data.firstname}${data.pfadiName ? ' / ' + data.pfadiName : ''}</p>
                         <br>
-                        ${signatureLines.map(line =>
-            `<p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${line}</p>`
-        ).join('')}
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${resultingLine}</p>
+
                         <br>
-                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${data.phone || ''}</p>
-                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${data.mail || ''}</p>
-                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${this.config.signature.websiteUrl}</p>
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">Swiss Contingent</p>
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">World Scout Jamboree 2027</p>
+                        <br>
+
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300">${this.config.signature.phoneNumber || ''}</p>
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300"><a href="mailto:${data.mail || ''}">${data.mail || ''}</a></p>
+                        <p style="margin: 0; text-align: left; font-family: '${this.config.signature.fontFamily}'; font-size: ${this.config.signature.fontSize}; font-weight: 300"><a href="${this.config.signature.websiteUrl}" target="_blank">${this.config.signature.websiteUrl}</a></p>
                     </th>
                 </tr>
             </table>
         `;
-    }
-
-    getRoleTranslations(role, gender) {
-        const roleData = this.translations.roles[role];
-        if (!roleData) return { fr: '', de: '', it: '' };
-
-        return {
-            fr: roleData.fr[gender] || '',
-            de: roleData.de[gender] || '',
-            it: roleData.it[gender] || ''
-        };
-    }
-
-    getSectorTranslations(sector) {
-        const sectorData = this.translations.sectors[sector];
-        if (!sectorData) return { fr: '', de: '', it: '' };
-
-        return {
-            fr: sectorData.fr || '',
-            de: sectorData.de || '',
-            it: sectorData.it || ''
-        };
     }
 
     displaySignature(signatureHTML) {

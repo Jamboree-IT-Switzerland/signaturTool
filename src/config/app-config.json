@@ -10,13 +10,13 @@
     "logoPath": "img/Jamboree_Logo_Mailsignatur_small.png",
     "logoHeight": "150px",
     "fontFamily": "arial",
-    "fontSize": "12.5px"
+    "fontSize": "12.5px",
+    "phoneNumber": "+41 56 426 22 11 (Tue & Fri 08:00-12:00)"
   },
   "form": {
     "validation": {
       "required": ["gender", "firstname", "role", "Comission"],
-      "emailPattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-      "phonePattern": "^[+]?[0-9\\s\\-\\(\\)]{10,}$"
+      "emailPattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
     }
   },
   "ui": {
